@@ -1,16 +1,21 @@
-// Export and define interfaces to represent different entities
+// interfaces.ts
+
+// Interface for a Person
 export interface Person {
   id: number;
   name: string;
 }
 
+// Interface for a Doctor, extending Person
 export interface Doctor extends Person {
   workingHours: { start: string; end: string };
   availableDays: string[];
 }
 
+// Interface for a Patient, extending Person
 export interface Patient extends Person {}
 
+// Interface for an Appointment
 export interface Appointment {
   id: number;
   patientId: number;
@@ -18,6 +23,7 @@ export interface Appointment {
   dateTime: string;
 }
 
+// Interface for a Surgery
 export interface Surgery {
   id: number;
   patientId: number;
@@ -27,6 +33,7 @@ export interface Surgery {
   details: string;
 }
 
+// Interface for a Task
 export interface Task {
   id: number;
   description: string;
@@ -34,6 +41,7 @@ export interface Task {
   doctorId: number;
 }
 
+// Interface for an Operation Theatre
 export interface OperationTheatre {
   id: number;
   name: string;
