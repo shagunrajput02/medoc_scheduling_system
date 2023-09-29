@@ -63,6 +63,27 @@ class HospitalScheduler {
   }
 
   // Other display methods for surgeries, tasks, etc.
+    // Display Scheduled Surgeries
+  displaySurgeries() {
+    this.surgeries.forEach((surgery) => {
+      const patient = this.patients.find((p) => p.id === surgery.patientId);
+      const doctor = this.doctors.find((d) => d.id === surgery.doctorId);
+      console.log(
+        `Surgery ID: ${surgery.id}, Patient: ${patient?.name}, Doctor: ${doctor?.name}, Date and Time: ${surgery.dateTime}`
+      );
+      console.log(`Details: ${surgery.details}`);
+    });
+  }
+
+  // Display Assigned Tasks
+  displayTasks() {
+    this.tasks.forEach((task) => {
+      const doctor = this.doctors.find((d) => d.id === task.doctorId);
+      console.log(`Task ID: ${task.id}, Description: ${task.description}`);
+      console.log(`Due Date: ${task.dueDate}`);
+      console.log(`Assigned to Doctor: ${doctor?.name}`);
+    });
+  }
 }
 
 export default HospitalScheduler;
